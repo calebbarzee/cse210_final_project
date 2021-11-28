@@ -1,7 +1,7 @@
-from game.falling_obj import Falling_Obj
+from game.actor import Actor
 
 
-class Metal(Falling_Obj):
+class Score(Actor):
     """A visible, moveable thing that participates in the game. The responsibility of Actor is to keep track of its appearance, position 
     and velocity in 2d space.
 
@@ -18,4 +18,4 @@ class Metal(Falling_Obj):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__(200, 200)

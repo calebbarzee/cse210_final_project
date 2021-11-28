@@ -1,4 +1,6 @@
 from game.actor import Actor
+from game import constants
+import random
 
 
 class Falling_Obj(Actor):
@@ -18,7 +20,7 @@ class Falling_Obj(Actor):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__(random.randint(100, (constants.MAX_X - 100)), 0)
 
     def clear_object():
         """clears the object off of the screen"""
