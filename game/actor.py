@@ -18,7 +18,7 @@ class Actor():
         _image (string): The file path of the image file (if present)
     """
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, width, height):
         """The class constructor.
 
         Args:
@@ -27,9 +27,10 @@ class Actor():
         self._text = ""
         self._position = Point(x, y)
         self._velocity = Point(0, 0)
-        self._width = 0
-        self._height = 0
+        self._width = width
+        self._height = height
         self._image = ""
+        self._bounding_box = {"x": [x, x+width], "y": [y, y+height]}
 
     def __str__(self):
         return f"Position: {self._position._x} {self._position._y}"
@@ -132,3 +133,22 @@ class Actor():
 
     def has_image(self):
         return self._image != ""
+
+    def get_bounding_box(self):
+        return self._bounding_box
+
+    def reset_bounding_box(self):
+        x = self._position.get_x
+        y = self._position.get_y
+        width = self.get_width
+        height = self.get_height
+        self._bounding_box = {"x": [x, x+width], "y": [y, y+height]}
+
+    def is_within_bounding_box(self, location):
+        """Returns a boolean value whether or not the point given is within the objects bounding box"""
+
+        x = location.get_x
+        y = location.get_y
+        if x in range(self._bounding_box["x"][0], self._bounding_box["x"][1]):
+            if y in range(self._bounding_box["y"][0], self._bounding_box["y"][1]):
+                return True

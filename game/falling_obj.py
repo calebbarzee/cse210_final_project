@@ -1,26 +1,29 @@
+from game.point import Point
 from game.actor import Actor
+from game.mouse_state import Mouse_State
 from game import constants
 import random
 
 
 class Falling_Obj(Actor):
-    """A visible, moveable thing that participates in the game. The responsibility of Actor is to keep track of its appearance, position 
-    and velocity in 2d space.
+    """A falling object that falls from the top of the screen, awaits user input to be dragged, and is cleared off at the bottom of the screen.
 
     Stereotype:
-        Information Holder
+
 
     Attributes:
-        _text (string): The textual representation of the actor.
-        _position (Point): The actor's position in 2d space.
-        _velocity (Point): The actor's speed and direction.
-        _width (int): The actor's width
-        _height (int): The actor's height
-        _image (string): The file path of the image file (if present)
+
     """
 
     def __init__(self):
-        super().__init__(random.randint(100, (constants.MAX_X - 100)), 0)
+        super().__init__(random.randint(100, (constants.MAX_X - 100)), 0, 100, 100)
+        # ^^^ initializes the object at the top of the screen 100 units from the edges of the screen
+        # ^^^ last two arguments set the width and height of the actor
+        self.set_velocity = Point(0, 1)
 
-    def clear_object():
-        """clears the object off of the screen"""
+    def clear_object(self):
+        """clears the object off of the screen if it's at the bottom"""
+
+    def evaluate_state(self):
+        """calls mouse_state to evaluate if object is being dragged"""
+        Mouse_State.drag_state(self)

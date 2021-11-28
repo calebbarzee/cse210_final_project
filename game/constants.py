@@ -5,8 +5,8 @@ import os
 # FRAME_RATE = 30
 
 # Lower resolution settings
-MAX_X = 1200
-MAX_Y = 600
+MAX_X = 600
+MAX_Y = 1200
 FRAME_RATE = 30
 
 DEFAULT_SQUARE_SIZE = 20

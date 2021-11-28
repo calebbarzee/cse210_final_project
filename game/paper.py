@@ -1,4 +1,5 @@
 from game.falling_obj import Falling_Obj
+from game import constants
 
 
 class Paper(Falling_Obj):
@@ -19,3 +20,4 @@ class Paper(Falling_Obj):
 
     def __init__(self):
         super().__init__()
+        self.set_image = constants.IMAGE_PAPER

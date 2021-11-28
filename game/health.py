@@ -1,4 +1,5 @@
 from game.actor import Actor
+from game import constants
 
 
 class Health(Actor):
@@ -19,3 +20,4 @@ class Health(Actor):
 
     def __init__(self):
         super().__init__(300, 200)
+        self.set_image = constants.IMAGE_HEALTH

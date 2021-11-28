@@ -20,8 +20,19 @@ class InputService:
         """
         pass
 
-    def mouse_state():
-        pass
+    def mouse_button_pressed(self):
+        boolean = raylibpy.is_mouse_button_down()
+        return boolean
+
+    def mouse_button_released(self):
+        boolean = raylibpy.is_mouse_button_up()
+        return boolean
+
+    def mouse_location(self):
+        x = raylibpy.get_mouse_x()
+        y = raylibpy.get_mouse_y()
+        mouse_location = Point(x, y)
+        return mouse_location
 
     def window_should_close(self):
         return raylibpy.window_should_close()
