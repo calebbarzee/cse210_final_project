@@ -1,4 +1,4 @@
-from game.falling_obj import Falling_Obj
+from game.actors.falling_obj import Falling_Obj
 from game import constants
 
 
