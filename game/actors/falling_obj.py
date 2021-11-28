@@ -1,6 +1,5 @@
 from game.point import Point
 from game.actor import Actor
-from game.mouse_state import Mouse_State
 from game import constants
 import random
 
@@ -12,7 +11,7 @@ class Falling_Obj(Actor):
 
 
     Attributes:
-
+        _type: recyclable
     """
 
     def __init__(self):
@@ -20,10 +19,4 @@ class Falling_Obj(Actor):
         # ^^^ initializes the object at the top of the screen 100 units from the edges of the screen
         # ^^^ last two arguments set the width and height of the actor
         self.set_velocity = Point(0, 1)
-
-    def clear_object(self):
-        """clears the object off of the screen if it's at the bottom"""
-
-    def evaluate_state(self):
-        """calls mouse_state to evaluate if object is being dragged"""
-        Mouse_State.drag_state(self)
+        self._type = "recyclable"

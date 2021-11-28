@@ -10,9 +10,10 @@ class Glass(Falling_Obj):
 
 
     Attributes:
-
+        recyclable_type: type of recyclable (paper, glass, or metal) 
     """
 
     def __init__(self):
         super().__init__()
+        self._recyclable_type = "glass"
         self.set_image = constants.IMAGE_GLASS

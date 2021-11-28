@@ -31,6 +31,7 @@ class Actor():
         self._height = height
         self._image = ""
         self._bounding_box = {"x": [x, x+width], "y": [y, y+height]}
+        self._type = "stationary"
 
     def __str__(self):
         return f"Position: {self._position._x} {self._position._y}"
@@ -146,9 +147,8 @@ class Actor():
 
     def is_within_bounding_box(self, location):
         """Returns a boolean value whether or not the point given is within the objects bounding box"""
-
         x = location.get_x
-        y = location.get_y
+        y = location.get_x
         if x in range(self._bounding_box["x"][0], self._bounding_box["x"][1]):
             if y in range(self._bounding_box["y"][0], self._bounding_box["y"][1]):
                 return True

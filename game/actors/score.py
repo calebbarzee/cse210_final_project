@@ -10,13 +10,12 @@ class Score(Actor):
         Information Holder
 
     Attributes:
-        _text (string): The textual representation of the actor.
-        _position (Point): The actor's position in 2d space.
-        _velocity (Point): The actor's speed and direction.
-        _width (int): The actor's width
-        _height (int): The actor's height
-        _image (string): The file path of the image file (if present)
+        score: an integer representing points accumulated by user
     """
 
     def __init__(self):
-        super().__init__(200, 200)
+        super().__init__(200, 200, 100, 20)
+        self._score = 0
+
+    def update_score(self, points):
+        self._score += points

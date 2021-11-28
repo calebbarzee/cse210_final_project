@@ -10,14 +10,14 @@ class Health(Actor):
         Information Holder
 
     Attributes:
-        _text (string): The textual representation of the actor.
-        _position (Point): The actor's position in 2d space.
-        _velocity (Point): The actor's speed and direction.
-        _width (int): The actor's width
-        _height (int): The actor's height
-        _image (string): The file path of the image file (if present)
+        health_score: an integer from 0-100
     """
 
     def __init__(self):
-        super().__init__(300, 200)
+        super().__init__(300, 200, 300, 20)
         self.set_image = constants.IMAGE_HEALTH
+        self.health_score = 100
+
+    def update_health(self, value):
+        # value is a negative integer of health lost from incorrect object sorting
+        self.health_score += value

@@ -7,17 +7,13 @@ class Metal(Falling_Obj):
     and velocity in 2d space.
 
     Stereotype:
-        Information Holder
+
 
     Attributes:
-        _text (string): The textual representation of the actor.
-        _position (Point): The actor's position in 2d space.
-        _velocity (Point): The actor's speed and direction.
-        _width (int): The actor's width
-        _height (int): The actor's height
-        _image (string): The file path of the image file (if present)
+        recyclable_type: type of recyclable (paper, glass, or metal) 
     """
 
     def __init__(self):
         super().__init__()
+        self._recyclable_type = "metal"
         self.set_image = constants.IMAGE_METAL
