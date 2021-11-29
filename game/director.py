@@ -1,4 +1,3 @@
-import asyncio
 import random
 import raylibpy
 from game import constants
@@ -65,7 +64,7 @@ class Director:
         self.initialize_actors()
 
         while self._keep_playing:
-            asyncio.run(self.run_script())
+            self.run_script()
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
@@ -80,29 +79,30 @@ class Director:
         self._cast.append(self._glass_bin)
         self._cast.append(self._metal_bin)
 
-    async def generate_recyclables(self):
-        """asynchronously generates a random amount of recyclables and adds them to the cast list"""
-        await asyncio.sleep(constants.RECYCLABLE_GENERATION_WAIT_TIME)
-        for i in range(0, random.randint(0, 3)):
-            recyclable_type = random.randint(1, 3)
-            if recyclable_type == 1:
-                recyclable = Paper()
-            elif recyclable_type == 2:
-                recyclable = Glass()
-            elif recyclable_type == 3:
-                recyclable = Metal()
-            # add recyclable to cast list (name is non-unique)
-            self._cast.append(recyclable)
+    def generate_recyclables(self):
+        """A counter instigated function generates a random amount of recyclables and adds them to the cast list"""
+        counter = 0
+        if counter > 90:
+            counter = 0
+            for i in range(0, random.randint(0, 3)):
+                recyclable_type = random.randint(1, 3)
+                if recyclable_type == 1:
+                    recyclable = Paper()
+                elif recyclable_type == 2:
+                    recyclable = Glass()
+                elif recyclable_type == 3:
+                    recyclable = Metal()
+                # add recyclable to cast list (name is non-unique)
+                self._cast.append(recyclable)
 
-    async def run_script(self):
+    def run_script(self):
         """Generates and runs the list of methods in script based on actors present in cast."""
 
         # input services (mainly a place holder for future expansion of menu pages)
         # (state machine for game input contained within object_state)
 
         # updates of actor attributes (score, health, recyclables velocity) and clearing of old falling_objects.
-        task_1 = asyncio.create_task(self.generate_recyclables())
-        await task_1
+        self.generate_recyclables()
         self.evaluate_recyclables_state()
 
         # output of actors on screen

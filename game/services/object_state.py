@@ -83,4 +83,5 @@ class Object_State():
                     value = -5
             health.update_health(value)
             score.update_score(points)
-            cast.pop(recyclable)
+            i = cast.index(recyclable)
+            cast.pop(i)
