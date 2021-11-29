@@ -9,9 +9,9 @@ from game.services.output_service import OutputService
 from game.services.audio_service import AudioService
 from game.actors.score import Score
 from game.actors.health import Health
-from game.recyclables.paper import Paper
-from game.recyclables.glass import Glass
-from game.recyclables.metal import Metal
+from game.actors.paper import Paper
+from game.actors.glass import Glass
+from game.actors.metal import Metal
 from game.bins.paper_bin import Paper_Bin
 from game.bins.glass_bin import Glass_Bin
 from game.bins.metal_bin import Metal_Bin
