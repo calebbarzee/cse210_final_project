@@ -16,11 +16,12 @@ class Glass(Actor):
     """
 
     def __init__(self):
-        super().__init__(random.randint(100, (constants.MAX_X - 100)),
-                         0, constants.PAPER_WIDTH, constants.PAPER_HEIGHT)
+        x = random.randint(100, constants.MAX_X - 100)
+        super().__init__(x, 0,
+                         constants.GLASS_WIDTH, constants.GLASS_HEIGHT)
         # ^^^ initializes the object at the top of the screen 100 units from the edges of the screen
         # ^^^ last two arguments set the width and height of the actor
-        self.set_velocity = Point(0, 1)
+        self.set_velocity(Point(0, 1))
         self._type = "recyclable"
         self._recyclable_type = "glass"
         self.set_image = constants.IMAGE_GLASS

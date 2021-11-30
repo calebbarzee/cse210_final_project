@@ -2,7 +2,6 @@ import sys
 from game import constants
 import raylibpy
 
-
 class OutputService:
     """Outputs the game state. The responsibility of the class of objects is to draw the game state on the terminal. 
 
@@ -86,7 +85,7 @@ class OutputService:
             #self.draw_image(x - width / 2, y - height / 2, image)
         elif actor.has_text():
             text = actor.get_text()
-            self.draw_text(x, y, text, True)
+            self.draw_text(x, y, text, False)
         elif width > 0 and height > 0:
             self.draw_box(x, y, width, height)
 
