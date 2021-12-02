@@ -43,7 +43,7 @@ class Director:
         self._input_service = InputService()
         self._output_service = OutputService()
         self._audio_service = AudioService()
-        
+
         self._score = Score()
         self._health = Health()
         # placeholder comment for character actor
@@ -60,13 +60,11 @@ class Director:
         self._object_state = Object_State()
         self._frame_counter = 0
 
-
     def open_window(self):
         # Start the game
         self._output_service.open_window("Save The Earth")
         self._audio_service.start_audio()
         # audio_service.play_sound(constants.SOUND_START)
-
 
     def start_game(self):
         """Starts the game loop to control the sequence of play."""
@@ -91,20 +89,21 @@ class Director:
                 self._keep_playing = False
                 self._audio_service.stop_audio()
 
-
     def generate_recyclables(self):
         """A counter instigated function generates a random amount of recyclables and adds them to the cast list"""
         for i in range(0, random.randint(0, 3)):
             recyclable_type = random.randint(1, 3)
             if recyclable_type == 1:
                 recyclable = Paper()
+                recyclable.set_velocity = Point(0, -1)
             elif recyclable_type == 2:
                 recyclable = Glass()
+                recyclable.set_velocity = Point(0, -1)
             elif recyclable_type == 3:
                 recyclable = Metal()
+                recyclable.set_velocity = Point(0, -1)
             # add recyclable to cast list (name is non-unique)
             self._cast.append(recyclable)
-
 
     def evaluate_recyclables_state(self):
         for actor in self._cast:

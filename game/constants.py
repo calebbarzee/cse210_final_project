@@ -6,7 +6,7 @@ import os
 
 # Lower resolution settings
 MAX_X = 600
-MAX_Y = 1000
+MAX_Y = 800
 FRAME_RATE = 10
 
 DEFAULT_SQUARE_SIZE = 20
