@@ -79,7 +79,8 @@ class Director:
                 self._frame_counter = 0
                 self.generate_recyclables()
             self.evaluate_recyclables_state()
-
+            for actor in self._cast:
+                actor.move_next()
             # output of actors on screen
             self._output_service.clear_screen()
             self._output_service.draw_actors(self._cast)
@@ -95,13 +96,13 @@ class Director:
             recyclable_type = random.randint(1, 3)
             if recyclable_type == 1:
                 recyclable = Paper()
-                recyclable.set_velocity = Point(0, -1)
+                recyclable.set_velocity = Point(0, 1)
             elif recyclable_type == 2:
                 recyclable = Glass()
-                recyclable.set_velocity = Point(0, -1)
+                recyclable.set_velocity = Point(0, 1)
             elif recyclable_type == 3:
                 recyclable = Metal()
-                recyclable.set_velocity = Point(0, -1)
+                recyclable.set_velocity = Point(0, 1)
             # add recyclable to cast list (name is non-unique)
             self._cast.append(recyclable)
 
