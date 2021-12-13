@@ -14,7 +14,8 @@ class Health(Actor):
     """
 
     def __init__(self):
-        super().__init__(constants.HEALTH_X, constants.HEALTH_Y, constants.HEALTH_WIDTH, constants.HEALTH_HEIGHT)
+        super().__init__(constants.HEALTH_X, constants.HEALTH_Y,
+                         constants.HEALTH_WIDTH, constants.HEALTH_HEIGHT)
         self.set_image = constants.IMAGE_HEALTH
         self.health_score = 100
 

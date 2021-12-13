@@ -14,7 +14,8 @@ class Score(Actor):
     """
 
     def __init__(self):
-        super().__init__(constants.SCORE_X, constants.SCORE_Y, constants.SCORE_WIDTH, constants.SCORE_HEIGHT)
+        super().__init__(constants.SCORE_X, constants.SCORE_Y,
+                         constants.SCORE_WIDTH, constants.SCORE_HEIGHT)
         self._score = 0
         self.set_text(str(self._score))
 
