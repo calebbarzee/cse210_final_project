@@ -99,6 +99,7 @@ class OutputService:
         """
         for actor in cast:
             self.draw_actor(actor)
+            print(f"Successfully drew actor: {actor}", flush=True)
 
     def flush_buffer(self):
         """Renders the screen.

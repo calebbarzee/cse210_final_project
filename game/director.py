@@ -28,8 +28,11 @@ class Director:
         """Starts the game loop to control the sequence of play."""
         while self._keep_playing:
             self._cue_action("input")
+            print("cued input", flush=True)
             self._cue_action("update")
+            print("cued update", flush=True)
             self._cue_action("output")
+            print("cued output", flush=True)
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
