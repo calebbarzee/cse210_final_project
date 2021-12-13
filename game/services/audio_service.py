@@ -2,6 +2,7 @@ import sys
 from game.point import Point
 import raylibpy
 
+
 class AudioService:
     """Handles all the audio in the game.
 
@@ -13,12 +14,12 @@ class AudioService:
 
     def __init__(self):
         """The class constructor.
-        
+
         Args:
             self (InputService): An instance of InputService.
         """
         self._sounds = {}
-        
+
     def play_sound(self, filename):
         """
         Plays the sound file provided. Make sure to call start_audio before this is called.
