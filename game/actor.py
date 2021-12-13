@@ -152,21 +152,3 @@ class Actor():
 
     def has_image(self):
         return self._image != ""
-
-    def get_bounding_box(self):
-        return self._bounding_box
-
-    def reset_bounding_box(self):
-        x = self._position.get_x
-        y = self._position.get_y
-        width = self.get_width
-        height = self.get_height
-        self._bounding_box = {"x": [x, x+width], "y": [y, y+height]}
-
-    def is_within_bounding_box(self, location):
-        """Returns a boolean value whether or not the point given is within the objects bounding box"""
-        x = location.get_x
-        y = location.get_x
-        if x in range(self._bounding_box["x"][0], self._bounding_box["x"][1]):
-            if y in range(self._bounding_box["y"][0], self._bounding_box["y"][1]):
-                return True

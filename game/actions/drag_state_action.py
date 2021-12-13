@@ -56,36 +56,3 @@ class DragStateAction(Action):
             if recyclable._position.get_y() > 1100:
                 self._state = "waiting"
                 recyclable.set_velocity(Point(0, 0))
-
-    def clear_recyclable(self, recyclable, cast, health, score):
-        if self._state == "waiting":
-            x = recyclable.position.get_x
-            if x in range(0, 300):
-                # ^^^ paper bin range
-                if recyclable._recyclable_type == "paper":
-                    points = 10
-                    value = 0
-                else:
-                    points = 0
-                    value = -5
-            elif x in range(300, 600):
-                # ^^^ glass bin range
-                if recyclable._recyclable_type == "glass":
-                    points = 10
-                    value = 0
-                else:
-                    points = 0
-                    value = -5
-
-            elif x in range(600, 900):
-                # ^^^ metal bin range
-                if recyclable._recyclable_type == "metal":
-                    points = 10
-                    value = 0
-                else:
-                    points = 0
-                    value = -5
-            health.update_health(value)
-            score.update_score(points)
-            i = cast.index(recyclable)
-            cast.pop(i)

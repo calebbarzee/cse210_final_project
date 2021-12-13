@@ -42,9 +42,9 @@ def main():
     # create the cast {key: tag, value: list}
     cast = {}
 
-    cast["score"] = []
-    cast["health"] = []
-    cast["bins"] = []
+    cast["score"] = [score]
+    cast["health"] = [health]
+    cast["bins"] = [paper_bin, glass_bin, metal_bin]
 
     cast["recyclables"] = []
 
@@ -88,13 +88,6 @@ def main():
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
-
-    def evaluate_recyclables_state(self):
-        for actor in self._cast:
-            if actor._type == "recyclable":
-                self._object_state.drag_state(actor)
-                self._object_state.clear_recyclable(
-                    actor, self._cast, self._health, self._score)
 
     audio_service.stop_audio()
 
