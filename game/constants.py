@@ -27,7 +27,7 @@ SOUND_GLASS_SORT = os.path.join(os.getcwd(), "")
 SOUND_METAL_SORT = os.path.join(os.getcwd(), "")
 SOUND_OVER = os.path.join(os.getcwd(), "./assets/over.wav")
 
-FALLING_SPEED = 1
+FALLING_SPEED = 4
 RECYCLABLE_GENERATION_WAIT_TIME = 3  # seconds
 RECYCLABLE_FRAME_COUNT = RECYCLABLE_GENERATION_WAIT_TIME * FRAME_RATE
 
