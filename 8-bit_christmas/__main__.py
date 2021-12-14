@@ -10,6 +10,7 @@ from game.actions.move_actors_action import MoveActorsAction
 from game.services.input_service import InputService
 from game.services.output_service import OutputService
 from game.services.physics_service import PhysicsService
+from game.services.audio_service import AudioService
 from game.actors.present import Present
 from game.actors.character import Character
 from game.actors.marquee import Marquee
@@ -47,6 +48,7 @@ def main():
     input_service = InputService()
     output_service = OutputService()
     physics_service = PhysicsService()
+    audio_service = AudioService()
 
     control_actors_action = ControlActorsAction(input_service)
     move_actors_action = MoveActorsAction()
@@ -58,9 +60,44 @@ def main():
     script["output"] = [draw_actors_action]
 
     # start the game
-    output_service.open_window("character Finds Kitten")
+    audio_service.start_audio()
+    track = random.randint(1, 15)
+    if track == 1:
+        audio_service.play_sound(constants.SOUNDTRACK1)
+    if track == 2:
+        audio_service.play_sound(constants.SOUNDTRACK2)
+    if track == 3:
+        audio_service.play_sound(constants.SOUNDTRACK3)
+    if track == 4:
+        audio_service.play_sound(constants.SOUNDTRACK4)
+    if track == 5:
+        audio_service.play_sound(constants.SOUNDTRACK5)
+    if track == 6:
+        audio_service.play_sound(constants.SOUNDTRACK6)
+    if track == 7:
+        audio_service.play_sound(constants.SOUNDTRACK7)
+    if track == 8:
+        audio_service.play_sound(constants.SOUNDTRACK8)
+    if track == 9:
+        audio_service.play_sound(constants.SOUNDTRACK9)
+    if track == 10:
+        audio_service.play_sound(constants.SOUNDTRACK10)
+    if track == 11:
+        audio_service.play_sound(constants.SOUNDTRACK11)
+    if track == 12:
+        audio_service.play_sound(constants.SOUNDTRACK12)
+    if track == 13:
+        audio_service.play_sound(constants.SOUNDTRACK13)
+    if track == 14:
+        audio_service.play_sound(constants.SOUNDTRACK14)
+    if track == 15:
+        audio_service.play_sound(constants.SOUNDTRACK15)
+
+    output_service.open_window("8-Bit Christmas Simulator")
     director = Director(cast, script)
     director.start_game()
+
+    audio_service.stop_audio()
 
 
 if __name__ == "__main__":
