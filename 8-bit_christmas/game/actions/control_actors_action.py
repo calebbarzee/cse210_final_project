@@ -30,3 +30,5 @@ class ControlActorsAction(Action):
         direction = self._input_service.get_direction()
         character = cast["character"][0]  # there's only one in the cast
         character.set_velocity(direction.scale(constants.CHARACTER_SPEED))
+
+        # Placeholder for future character animation
