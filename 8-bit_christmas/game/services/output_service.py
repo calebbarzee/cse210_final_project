@@ -67,6 +67,10 @@ class OutputService:
         texture = self._textures[image]
         raylibpy.draw_texture(texture, x, y, raylibpy.WHITE)
 
+        # reference
+        # DrawTextureRec(Texture2D texture, Rectangle source, Vector2 position, Color tint);
+        # Draw a part of a texture defined by a rectangle
+
     def draw_actor(self, actor):
         """Renders the given actor's text on the screen.
 
