@@ -9,12 +9,13 @@ class Present(Actor):
     """
 
     def __init__(self):
-        super().__init__(random.randint(0, constants.MAX_X - 1),
-                         random.randint(1, constants.MAX_Y - 1))
+        super().__init__(random.randint(100, constants.MAX_X - 100),
+                         random.randint(450, constants.MAX_Y - 50))
 
         self._description = ""
-        self.set_width(constants.DEFAULT_BLOCK_SIZE)
-        self.set_height(constants.DEFAULT_BLOCK_SIZE)
+        self.set_width(constants.PRESENT_WIDTH)
+        self.set_height(constants.PRESENT_HEIGHT)
+        self.set_image(constants.PRESENT_IMAGE)
 
     def get_description(self):
         return self._description

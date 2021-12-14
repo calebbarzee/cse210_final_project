@@ -55,7 +55,7 @@ class OutputService:
         raylibpy.draw_text(text, x + 5, y + 5,
                            constants.DEFAULT_FONT_SIZE, color)
 
-    def draw_image(self, x, y, image):
+    def draw_image(self, x, y, width, height, image):
         """
         Outputs the provided image on the screen.
         """
@@ -65,7 +65,9 @@ class OutputService:
             self._textures[image] = loaded
 
         texture = self._textures[image]
-        raylibpy.draw_texture(texture, x, y, raylibpy.WHITE)
+        raylibpy.draw_texture_rec(texture,
+                                  raylibpy.Rectangle(0, 0, width, height),
+                                  raylibpy.Vector2(x, y), raylibpy.WHITE)
 
         # reference
         # DrawTextureRec(Texture2D texture, Rectangle source, Vector2 position, Color tint);
@@ -86,7 +88,7 @@ class OutputService:
 
         if actor.has_image():
             image = actor.get_image()
-            self.draw_image(x, y, image)
+            self.draw_image(x, y, width, height, image)
         elif actor.has_text():
             text = actor.get_text()
             self.draw_text(x, y, text, True)

@@ -9,3 +9,4 @@ class Character(Actor):
         self._description = ""
         self.set_width(constants.CHARACTER_WIDTH)
         self.set_height(constants.CHARACTER_HEIGHT)
+        self.set_image(constants.CHARACTER_IMAGE)
