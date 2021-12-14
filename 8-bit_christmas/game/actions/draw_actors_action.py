@@ -10,10 +10,12 @@ class DrawActorsAction(Action):
 
     def execute(self, cast):
         self.output_service.clear_screen()
+        for actor in cast["background"]:
+            self.output_service.draw_actor(actor)
         for actor in cast["marquee"]:
             self.output_service.draw_actor(actor)
         for actor in cast["character"]:
             self.output_service.draw_actor(actor)
-        for actor in cast["artifact"]:
+        for actor in cast["presents"]:
             self.output_service.draw_actor(actor)
         self.output_service.flush_buffer()

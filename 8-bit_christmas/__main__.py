@@ -10,15 +10,19 @@ from game.actions.move_actors_action import MoveActorsAction
 from game.services.input_service import InputService
 from game.services.output_service import OutputService
 from game.services.physics_service import PhysicsService
-from game.actors.artifact import Artifact
+from game.actors.present import Present
 from game.actors.character import Character
 from game.actors.marquee import Marquee
+from game.actors.background import Background
 
 
 def main():
 
     # create the cast {key: tag, value: list}
     cast = {}
+
+    background = Background()
+    cast["background"] = [background]
 
     marquee = Marquee()
     marquee.set_text("")
@@ -28,16 +32,14 @@ def main():
     character.set_text("#")
     cast["character"] = [character]
 
-    artifacts = []
-    for n in range(constants.ARTIFACTS):
-        text = chr(random.randint(33, 126))
+    presents = []
+    for n in range(constants.PRESENTS):
         description = constants.MESSAGES[n]
 
-        artifact = Artifact()
-        artifact.set_description(description)
-        artifact.set_text(text)
-        artifacts.append(artifact)
-    cast["artifact"] = artifacts
+        present = Present()
+        present.set_description(description)
+        presents.append(present)
+    cast["presents"] = presents
 
     # create the script {key: tag, value: list}
     script = {}

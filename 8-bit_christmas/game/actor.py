@@ -3,7 +3,7 @@ from game.point import Point
 
 
 class Actor:
-    """A visible, moveable thing that participates in the game. The responsibility of Actor is to keep track of its appearance, position 
+    """A visible, moveable thing that participates in the game. The responsibility of Actor is to keep track of its appearance, position
     and velocity in 2d space.
 
     Stereotype:
@@ -28,6 +28,7 @@ class Actor:
         self._velocity = Point(0, 0)
         self._width = 0
         self._height = 0
+        self._image = ""
 
     def get_width(self):
         return self._width
@@ -65,6 +66,18 @@ class Actor:
 
     def set_text(self, text):
         self._text = text
+
+    def has_text(self):
+        return self._text != ""
+
+    def set_image(self, image):
+        self._image = image
+
+    def has_image(self):
+        return self._image != ""
+
+    def get_image(self):
+        return self._image
 
     def get_velocity(self):
         """Gets the actor's speed and direction.

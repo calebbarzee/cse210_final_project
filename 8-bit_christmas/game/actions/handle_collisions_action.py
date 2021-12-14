@@ -22,9 +22,9 @@ class HandleCollisionsAction(Action):
         """
         marquee = cast["marquee"][0]  # there's only one
         character = cast["character"][0]  # there's only one
-        artifacts = cast["artifact"]
+        presents = cast["presents"]
         marquee.set_text("")
-        for artifact in artifacts:
-            if self._physics_service.is_collision(character, artifact):
-                description = artifact.get_description()
+        for present in presents:
+            if self._physics_service.is_collision(character, present):
+                description = present.get_description()
                 marquee.set_text(description)
